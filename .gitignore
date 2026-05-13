@@ -1,0 +1,25 @@
+# Large training data
+data_files/bigsol_split1_training.pkl
+
+# Checkpoints
+ckpt/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Environments
+.env
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

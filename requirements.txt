@@ -1,0 +1,7 @@
+torch==2.7.1
+torch-geometric==2.6.1
+rdkit==2025.3.6
+scipy==1.17.1
+scikit-learn==1.7.0
+tqdm==4.67.1
+numpy==1.26.4
