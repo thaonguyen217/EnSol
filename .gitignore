@@ -1,5 +1,5 @@
 # Large training data
-data_files/bigsol_split1_training.pkl
+data_files/*.pkl
 
 # Checkpoints
 ckpt/
