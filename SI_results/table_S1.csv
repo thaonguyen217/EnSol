@@ -1,10 +1,16 @@
-dataset,model,MAE_mean,MAE_std,MSE_mean,MSE_std,RMSE_mean,RMSE_std,Spearman_mean,Spearman_std,R2_mean,R2_std
-SolProp,EnSol,0.4681,0.0208,0.6802,0.0632,0.8241,0.0387,0.8764,0.0058,0.6663,0.031
-SolProp,FASTSOLV,0.9073,,1.6989,,1.3034,,0.5088,,0.1655,
-SolProp,Vermeire,0.9705,,2.8906,,1.7002,,0.569,,-0.4179,
-Leeds,EnSol,0.7056,0.0162,0.8919,0.0387,0.9442,0.0204,0.6016,0.0156,0.254,0.0323
-Leeds,FASTSOLV,0.6914,,0.8498,,0.9218,,0.593,,0.2893,
-Leeds,Vermeire,1.4254,,4.1035,,2.0257,,0.245,,-2.432,
-Experimental data,EnSol,0.5419,0.0368,0.4909,0.086,0.6988,0.062,0.7154,0.0355,0.1848,0.1428
-Experimental data,FASTSOLV,0.7823,,1.0767,,1.0377,,0.3015,,-0.7882,
-Experimental data,Vermeire,0.6201,,0.7072,,0.841,,0.5953,,-0.1745,
+dataset,model,seed,MAE,RMSE,Spearman,R2
+SolProp,EnSol,42,0.4514,0.8355,0.8774,0.6575
+SolProp,EnSol,0,0.4616,0.781,0.8816,0.7008
+SolProp,EnSol,2,0.4914,0.8559,0.8701,0.6406
+SolProp,FASTSOLV,n/a,0.9073,1.3034,0.5088,0.1655
+SolProp,Vermeire,n/a,0.9705,1.7002,0.569,-0.4179
+Leeds,EnSol,42,0.7233,0.966,0.5922,0.2195
+Leeds,EnSol,0,0.702,0.9412,0.593,0.259
+Leeds,EnSol,2,0.6914,0.9255,0.6196,0.2836
+Leeds,FASTSOLV,n/a,0.6914,0.9218,0.593,0.2893
+Leeds,Vermeire,n/a,1.4254,2.0257,0.245,-2.432
+Experimental data,EnSol,42,0.5446,0.7066,0.7371,0.1707
+Experimental data,EnSol,0,0.5038,0.6332,0.7347,0.3341
+Experimental data,EnSol,2,0.5773,0.7565,0.6745,0.0495
+Experimental data,FASTSOLV,n/a,0.7823,1.0377,0.3015,-0.7882
+Experimental data,Vermeire,n/a,0.6201,0.841,0.5953,-0.1745
