@@ -13,41 +13,41 @@ EnSol predicts molecular solubility (logS, mol/L) given a solute, a solvent, and
 
 ```
 EnSol/
-├── train.py               # Main training script (BigSol dataset)
-├── model.py                # Shared model components (CrossAttentionLayer, DMNHead, dmn_loss,
-│                            #   SolubilityDataset, evaluate, ...) + its own fine-tuning entrypoint
-├── inference.py              # Inference function
-├── helpers.py                  # SMILES → PyG graph featurizer, train/val/test splitters
-├── transfer_learning.py          # Fine-tunes the adopted checkpoint on AqSolDB / ESOL
-│                                  #   (water solubility, no-temperature architecture)
-├── ablation_study.py                # Ablation variants, incl. AblationModel/VARIANT_CONFIG
-│                                     #   (inference.py's architecture)
-├── gen_figure_S1_S3.py                # Builds SI_results/figure_S{1,2,3}.csv
+├── train.py                                            # Main training script (BigSol dataset)
+├── model.py                                            # Shared model components (CrossAttentionLayer, DMNHead, dmn_loss,
+│                                                       #   SolubilityDataset, evaluate, ...) + its own fine-tuning entrypoint
+├── inference.py                                        # Inference function
+├── helpers.py                                          # SMILES → PyG graph featurizer, train/val/test splitters
+├── transfer_learning.py                                # Fine-tunes the adopted checkpoint on AqSolDB / ESOL
+│                                                       #   (water solubility, no-temperature architecture)
+├── ablation_study.py                                   # Ablation variants, incl. AblationModel/VARIANT_CONFIG
+│                                                       #   (inference.py's architecture)
+├── gen_figure_S1_S3.py                                 # Builds SI_results/figure_S{1,2,3}.csv
 │
 ├── data_files/
-│   ├── bigsol_split1_training.pkl     # BigSol train/val/test splits
-│   ├── bigsol_temperatureK.pkl        # Temperature statistics for normalization
-│   ├── solprop_split1_training.pkl    # SolProp evaluation set
-│   ├── leeds_training_data.pkl        # Leeds evaluation set
-│   ├── aqsoldb_water_finetune.pkl     # AqSolDB fine-tune set (used by transfer_learning.py)
+│   ├── bigsol_split1_training.pkl                      # BigSol train/val/test splits
+│   ├── bigsol_temperatureK.pkl                         # Temperature statistics for normalization
+│   ├── solprop_split1_training.pkl                     # SolProp evaluation set
+│   ├── leeds_training_data.pkl                         # Leeds evaluation set
+│   ├── aqsoldb_water_finetune.pkl                      # AqSolDB fine-tune set (used by transfer_learning.py)
 │   ├── BigSol.csv
 │   ├── SolProp.csv
 │   └── Leeds.csv
 │
-├── weights/                      # Trained checkpoints (Git LFS)
-│   ├── bigsol_cross_attention.pt   # adopted EnSol model -- inference.py default
-│   └── water_solubility_model.pt   # AqSolDB fine-tune of the above (transfer_learning.py output)
+├── weights/                                            # Trained checkpoints (Git LFS)
+│   ├── bigsol_cross_attention.pt                       # adopted EnSol model -- inference.py default
+│   └── water_solubility_model.pt                       # AqSolDB fine-tune of the above (transfer_learning.py output)
 │
-├── SI_results/                   # Supplementary-Information source data
-│   ├── lab_testing.csv                # Lab-100 experimental set (100 pairs)
+├── SI_results/                                         # Supplementary-Information source data
+│   ├── lab_testing.csv                                 # Lab-100 experimental set (100 pairs)
 │   ├── figure_S1.csv / figure_S2.csv / figure_S3.csv   # BigSol/SolProp/Leeds LogS & temp distributions
 │   ├── table_S1.csv / table_S2.csv / table_S3.csv / table_S5.csv
-│   └── per_sample/                    # per-sample predictions backing the SI tables
+│   └── per_sample/                                     # per-sample predictions backing the SI tables
 │       ├── Ensol_{SolProp,Leeds,lab_data}.csv
 │       ├── FASTSOLV_{SolProp,Leeds,lab_data}.csv
 │       └── Vermeire_{SolProp,Leeds,lab_data}.csv
 │
-├── data.md                # Public dataset citations/links used in this study
+├── data.md                                             # Public dataset citations/links used in this study
 └── requirements.txt
 ```
 
