@@ -13,61 +13,35 @@ EnSol predicts molecular solubility (logS, mol/L) given a solute, a solvent, and
 
 ```
 EnSol/
-├── train.py                      # Main training script (BigSol dataset, DMN + FiLM temp module)
-├── model.py                      # Fine-tuning script (water solubility dataset)
-├── inference.py                  # Inference function
-├── helpers.py                    # SMILES → PyG graph featurizer, train/val/test splitters
-├── ablation_study.py             # Ablation variants (MSE head, K=5, concat-temp, film_v2,
-│                                  #   no-cross-attn, MPNN encoder, one-hot solvent)
-├── transfer_learning.py          # Fine-tunes the BigSol-pretrained model on AqSolDB / ESOL
-├── prepare_aqsoldb.py            # Builds the AqSolDB water-solubility fine-tune set
-├── prepare_esol.py               # Builds the ESOL (Delaney) water-solubility fine-tune set
-├── rebuild_bigsol_pkl.py         # Rebuilds bigsol_split1_training.pkl from BigSol.csv
+├── train.py           # Main training script (BigSol dataset)
+├── model.py            # Fine-tuning script / shared model components (evaluate, dataset, etc.)
+├── inference.py          # Inference function
+├── helpers.py              # SMILES → PyG graph featurizer, train/val/test splitters
 │
-├── benchmark_fastsolv.py         # FastSolv baseline on SolProp/Leeds
-├── benchmark_recall.py           # Top-k solvent-recall benchmark
-├── eval_lab100_ensol.py          # EnSol (old checkpoint) on the Lab-100 experimental set
-├── eval_lab100_ensol_filmv2.py   # EnSol (adopted film_v2 checkpoint) on Lab-100
-├── eval_lab100_fastsolv.py       # FastSolv on Lab-100
-├── eval_lab100_vermeire.py       # Vermeire/SolProp_ML on Lab-100
-├── ranking_eval.py               # Solute-/solvent-ranking evaluation on SolProp
-├── constrained_298k_eval.py      # SolProp evaluation restricted to ~298.15 K
-├── temperature_probing.py        # Per-cluster temperature-sweep probing
-├── temperature_probing_film_v2.py
-├── uncertainty_probing.py        # DMN mixture-variance vs. error calibration check
-├── similarity_analysis.py        # Train/test structural similarity analysis
-│
-├── data_files/                   # Datasets (see data.md for public sources/links)
+├── data_files/
 │   ├── bigsol_split1_training.pkl     # BigSol train/val/test splits
 │   ├── bigsol_temperatureK.pkl        # Temperature statistics for normalization
 │   ├── solprop_split1_training.pkl    # SolProp evaluation set
 │   ├── leeds_training_data.pkl        # Leeds evaluation set
-│   ├── aqsoldb_water_finetune*.pkl    # AqSolDB fine-tune sets (full / 5k / 1k subsamples)
-│   ├── esol_water_finetune.pkl        # ESOL (Delaney) fine-tune set
-│   ├── BigSol.csv / SolProp.csv / Leeds.csv / ESOL_delaney.csv / AqSolDB_curated.tab
-│   └── bigsol_split1_training.MOLEFRACTION_BUG.pkl.bak  # pre-fix backup (see rebuild_bigsol_pkl.py)
+│   ├── BigSol.csv
+│   ├── SolProp.csv
+│   └── Leeds.csv
 │
 ├── weights/                      # Trained checkpoints (Git LFS)
 │   ├── ablation_film_v2_seed42.pt                # adopted EnSol model -- inference.py default
-│   ├── bigsol_cross_attention1_seed{0,2,42}.pt   # earlier-FiLM model, used for Table 1 Lab-100 row only
-│   ├── ablation_<variant>_seed{0,1,2,3,42}.pt    # one family per other ablation variant
-│   └── water_solubility_transfer_*_seed*.pt      # AqSolDB/ESOL transfer-learning checkpoints
+│   ├── bigsol_cross_attention1_seed{0,2,42}.pt   # earlier-FiLM model
+│   ├── bigsol_cross_attention.pt
+│   └── water_solubility_model.pt
 │
-├── results/                      # Raw per-run metrics JSON/logs + full per-seed prediction CSVs
-├── histogram_data/                # BigSol/SolProp/Leeds solubility & temperature distributions
-├── similarity_results/           # Figures + report from similarity_analysis.py
-│
-├── SI_results/                   # Supplementary-Information source data (see below)
+├── SI_results/                   # Supplementary-Information source data
 │   ├── lab_testing.csv                # Lab-100 experimental set (100 pairs)
-│   ├── table_S1.csv / table_S2.csv / table_S3.csv / table_S5.csv  # per-seed SI table data
+│   ├── table_S1.csv / table_S2.csv / table_S3.csv / table_S5.csv
 │   └── per_sample/                    # per-sample predictions backing the SI tables
 │       ├── Ensol_{SolProp,Leeds,lab_data}.csv
 │       ├── FASTSOLV_{SolProp,Leeds,lab_data}.csv
 │       └── Vermeire_{SolProp,Leeds,lab_data}.csv
 │
-├── data.md                       # Public dataset citations/links used in this study
-├── TODO.md                       # Working notes: methodology, per-seed results, audit log
-├── EnSol_SI.docx                 # Supplementary Information document
+├── data.md                # Public dataset citations/links used in this study
 └── requirements.txt
 ```
 
