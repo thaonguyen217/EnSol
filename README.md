@@ -20,6 +20,9 @@ EnSol/
 ├── helpers.py                  # SMILES → PyG graph featurizer, train/val/test splitters
 ├── transfer_learning.py          # Fine-tunes the adopted checkpoint on AqSolDB / ESOL
 │                                  #   (water solubility, no-temperature architecture)
+├── ablation_study.py                # Ablation variants, incl. AblationModel/VARIANT_CONFIG
+│                                     #   (inference.py's architecture)
+├── gen_figure_S1_S3.py                # Builds SI_results/figure_S{1,2,3}.csv
 │
 ├── data_files/
 │   ├── bigsol_split1_training.pkl     # BigSol train/val/test splits
@@ -37,6 +40,7 @@ EnSol/
 │
 ├── SI_results/                   # Supplementary-Information source data
 │   ├── lab_testing.csv                # Lab-100 experimental set (100 pairs)
+│   ├── figure_S1.csv / figure_S2.csv / figure_S3.csv   # BigSol/SolProp/Leeds LogS & temp distributions
 │   ├── table_S1.csv / table_S2.csv / table_S3.csv / table_S5.csv
 │   └── per_sample/                    # per-sample predictions backing the SI tables
 │       ├── Ensol_{SolProp,Leeds,lab_data}.csv
