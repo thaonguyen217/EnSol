@@ -84,6 +84,8 @@ The script will:
 2. Train with Adam optimizer, saving the checkpoint with the best Spearman correlation on the validation set
 3. After training, evaluate the best checkpoint on **SolProp** and **Leeds** held-out sets and report Spearman, R², RMSE, and MAE
 
+`SolubilityPredictor` uses the same architecture as `weights/bigsol_cross_attention.pt` (cross-attention + AttentiveFP + redesigned FiLM temperature module + DMN head), so a checkpoint produced here is directly interchangeable with it -- copy or rename the output to `weights/bigsol_cross_attention.pt` to use it with `inference.py` (Step 2).
+
 ---
 
 ## Step 2: Evaluate / Inference
