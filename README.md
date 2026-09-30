@@ -13,22 +13,27 @@ EnSol predicts molecular solubility (logS, mol/L) given a solute, a solvent, and
 
 ```
 EnSol/
-├── train.py           # Main training script (BigSol dataset)
-├── model.py            # Fine-tuning script / shared model components (evaluate, dataset, etc.)
-├── inference.py          # Inference function
-├── helpers.py              # SMILES → PyG graph featurizer, train/val/test splitters
+├── train.py               # Main training script (BigSol dataset)
+├── model.py                # Shared model components (CrossAttentionLayer, DMNHead, dmn_loss,
+│                            #   SolubilityDataset, evaluate, ...) + its own fine-tuning entrypoint
+├── inference.py              # Inference function
+├── helpers.py                  # SMILES → PyG graph featurizer, train/val/test splitters
+├── transfer_learning.py          # Fine-tunes the adopted checkpoint on AqSolDB / ESOL
+│                                  #   (water solubility, no-temperature architecture)
 │
 ├── data_files/
 │   ├── bigsol_split1_training.pkl     # BigSol train/val/test splits
 │   ├── bigsol_temperatureK.pkl        # Temperature statistics for normalization
 │   ├── solprop_split1_training.pkl    # SolProp evaluation set
 │   ├── leeds_training_data.pkl        # Leeds evaluation set
+│   ├── aqsoldb_water_finetune.pkl     # AqSolDB fine-tune set (used by transfer_learning.py)
 │   ├── BigSol.csv
 │   ├── SolProp.csv
 │   └── Leeds.csv
 │
 ├── weights/                      # Trained checkpoints (Git LFS)
-│   └── bigsol_cross_attention.pt   # adopted EnSol model -- inference.py default
+│   ├── bigsol_cross_attention.pt   # adopted EnSol model -- inference.py default
+│   └── water_solubility_model.pt   # AqSolDB fine-tune of the above (transfer_learning.py output)
 │
 ├── SI_results/                   # Supplementary-Information source data
 │   ├── lab_testing.csv                # Lab-100 experimental set (100 pairs)
