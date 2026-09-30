@@ -41,6 +41,7 @@ EnSol/
 ├── SI_results/                                         # Supplementary-Information source data
 │   ├── lab_testing.csv                                 # Lab-100 experimental set (100 pairs)
 │   ├── figure_S1.csv / figure_S2.csv / figure_S3.csv   # BigSol/SolProp/Leeds LogS & temp distributions
+│   ├── figure_S4.csv                                   # EnSol prediction vs groundtruth LogS (SolProp & Leeds)
 │   ├── table_S1.csv / table_S2.csv / table_S3.csv / table_S5.csv
 │   └── per_sample/                                     # per-sample predictions backing the SI tables
 │       ├── Ensol_{SolProp,Leeds,lab_data}.csv
