@@ -22,7 +22,6 @@ EnSol/
 │                                                       #   (water solubility, no-temperature architecture)
 ├── ablation_study.py                                   # Ablation variants, incl. AblationModel/VARIANT_CONFIG
 │                                                       #   (inference.py's architecture)
-├── gen_figure_S1_S3.py                                 # Builds SI_results/figure_S{1,2,3}.csv
 │
 ├── data_files/
 │   ├── bigsol_split1_training.pkl                      # BigSol train/val/test splits
