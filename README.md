@@ -48,8 +48,9 @@ EnSol/
 │   └── bigsol_split1_training.MOLEFRACTION_BUG.pkl.bak  # pre-fix backup (see rebuild_bigsol_pkl.py)
 │
 ├── weights/                      # Trained checkpoints (Git LFS)
-│   ├── bigsol_cross_attention1_seed{0,2,42}.pt   # main model, used for Table 1 Lab-100 row
-│   ├── ablation_<variant>_seed{0,1,2,3,42}.pt    # one family per ablation variant
+│   ├── ablation_film_v2_seed42.pt                # adopted EnSol model -- inference.py default
+│   ├── bigsol_cross_attention1_seed{0,2,42}.pt   # earlier-FiLM model, used for Table 1 Lab-100 row only
+│   ├── ablation_<variant>_seed{0,1,2,3,42}.pt    # one family per other ablation variant
 │   └── water_solubility_transfer_*_seed*.pt      # AqSolDB/ESOL transfer-learning checkpoints
 │
 ├── results/                      # Raw per-run metrics JSON/logs + full per-seed prediction CSVs
