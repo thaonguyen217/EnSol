@@ -28,10 +28,9 @@ EnSol/
 │   └── Leeds.csv
 │
 ├── weights/                      # Trained checkpoints (Git LFS)
-│   ├── ablation_film_v2_seed42.pt                # adopted EnSol model -- inference.py default
+│   ├── bigsol_cross_attention.pt                 # adopted EnSol model -- inference.py default
 │   ├── bigsol_cross_attention1_seed{0,2,42}.pt   # earlier-FiLM model
-│   ├── bigsol_cross_attention.pt
-│   └── water_solubility_model.pt
+│   └── water_solubility_model.pt                 # deprecated checkpoint, do not use
 │
 ├── SI_results/                   # Supplementary-Information source data
 │   ├── lab_testing.csv                # Lab-100 experimental set (100 pairs)
@@ -106,7 +105,7 @@ metrics = predict(df, bs=32)
 # Returns: Spearman, R2, RMSE, MAE, and per-sample uncertainty estimates
 ```
 
-The `predict` function loads weights from `weights/ablation_film_v2_seed42.pt` by default — the adopted EnSol checkpoint (seed 42, redesigned FiLM temperature module), included in this repo via Git LFS. (Earlier versions of this README pointed at `weights/water_solubility_model.pt`, a checkpoint from a deprecated fine-tuning path whose source data no longer exists in this repo; `weights/bigsol_cross_attention1_seed*.pt` is a separate, earlier-FiLM checkpoint family used only for the Lab-100 "Experimental data" evaluation — see `TODO.md`.) The model outputs a mixture-of-Gaussians prediction; the reported value is the expected mean and the uncertainty is the predictive variance across the 3 mixture components.
+The `predict` function loads weights from `weights/bigsol_cross_attention.pt` by default — the adopted EnSol checkpoint (seed 42, redesigned FiLM temperature module), included in this repo via Git LFS. (Earlier versions of this README pointed at `weights/water_solubility_model.pt`, a checkpoint from a deprecated fine-tuning path whose source data no longer exists in this repo — do not use it; `weights/bigsol_cross_attention1_seed*.pt` is a separate, earlier-FiLM checkpoint family used only for the Lab-100 "Experimental data" evaluation — see `TODO.md`.) The model outputs a mixture-of-Gaussians prediction; the reported value is the expected mean and the uncertainty is the predictive variance across the 3 mixture components.
 
 ---
 

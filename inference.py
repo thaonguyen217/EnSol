@@ -9,9 +9,8 @@ from ablation_study import AblationModel, VARIANT_CONFIG
 # redesigned FiLM temperature module (quantile-based RBF centers, true
 # gamma*x+beta) + DMN head -- see TODO.md's "Temperature-conditioning
 # module" note. This is the checkpoint family whose numbers are reported
-# for EnSol on SolProp/Leeds; `ablation_film_v2_seed*.pt` is trained
-# identically, just via ablation_study.py's shared trunk.
-best_model_path = './weights/ablation_film_v2_seed42.pt'
+# for EnSol on SolProp/Leeds.
+best_model_path = './weights/bigsol_cross_attention.pt'
 
 
 def predict(df, bs=32, verbose=True):
