@@ -28,8 +28,7 @@ EnSol/
 │   └── Leeds.csv
 │
 ├── weights/                      # Trained checkpoints (Git LFS)
-│   ├── bigsol_cross_attention.pt                 # adopted EnSol model -- inference.py default
-│   └── water_solubility_model.pt                 # deprecated checkpoint, do not use
+│   └── bigsol_cross_attention.pt   # adopted EnSol model -- inference.py default
 │
 ├── SI_results/                   # Supplementary-Information source data
 │   ├── lab_testing.csv                # Lab-100 experimental set (100 pairs)
@@ -104,7 +103,7 @@ metrics = predict(df, bs=32)
 # Returns: Spearman, R2, RMSE, MAE, and per-sample uncertainty estimates
 ```
 
-The `predict` function loads weights from `weights/bigsol_cross_attention.pt` by default — the adopted EnSol checkpoint (seed 42, redesigned FiLM temperature module), included in this repo via Git LFS. (Earlier versions of this README pointed at `weights/water_solubility_model.pt`, a checkpoint from a deprecated fine-tuning path whose source data no longer exists in this repo — do not use it.) The model outputs a mixture-of-Gaussians prediction; the reported value is the expected mean and the uncertainty is the predictive variance across the 3 mixture components.
+The `predict` function loads weights from `weights/bigsol_cross_attention.pt` by default — the adopted EnSol checkpoint (seed 42, redesigned FiLM temperature module), included in this repo via Git LFS. The model outputs a mixture-of-Gaussians prediction; the reported value is the expected mean and the uncertainty is the predictive variance across the 3 mixture components.
 
 ---
 
